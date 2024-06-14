@@ -175,7 +175,7 @@ m:
     cout << "\t\t\t\t                               \n";
     cout << "\t\t\t\t       Add new product         \n";
     cout << "\t\t\t\t                               \n";
-    cout << "\t\t\t\t    enter a product id:        \n";
+    cout << "\t\t\t\t    Enter a product id:        \n";
     cin >> pId;
     cout << "\t\t\t\t    Enter a name for product   \n";
     cin >> pName;
@@ -217,5 +217,64 @@ m:
             data.close();
         };
     };
-    cout << "Success adding products"
+    cout << "Success adding products";
+};
+
+void shopping::editP()
+{
+    fstream data, data1;
+    int pKey;
+    int i;
+    int token = 0;
+    string n;
+    float p;
+    int c;
+
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t      edit exist product       \n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t    enter a product id:        \n";
+    cin >> pKey;
+
+    data.open("database.txt", ios::in);
+    if (!data)
+    {
+        cout << "\t\t\t\t file dosent exist!";
+    }
+    else
+    {
+        data1.open("database1.txt", ios::app | ios::out);
+
+        data >> pId >> pName >> pPrice >> pNumbers;
+        while (!data.eof())
+        {
+            if (pKey == pId)
+            {
+                cout << "\t\t\t\t    enter a product new id:    \n";
+                cin >> i;
+                cout << "\t\t\t\t    enter a new name:          \n";
+                cin >> n;
+                cout << "\t\t\t\t    enter a new price:         \n";
+                cin >> p;
+                cout << "\t\t\t\t    enter a new number:        \n";
+                cin >> c;
+                data1 << " " << i << " " << n << " " << p << " " << c << "\n";
+                cout << "\t\t\t\t Product updated";
+                token++;
+            }
+            else
+            {
+                data1 << " " << pId << " " << pName << " " << pPrice << " " << pNumbers << "\n";
+            };
+            data >> pId >> pName >> pPrice >> pNumbers;
+        };
+        data.close();
+        data1.close();
+
+        remove("database.txt");
+        rename("database1.txt", "database.txt")
+
+            if (token == 0){
+                cout << "\t\t\t\t Record not found sorry!"};
+    };
 };
