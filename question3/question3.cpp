@@ -23,7 +23,7 @@ public:
     void receipt();
 };
 
-void shopping ::menu()
+void shopping::menu()
 {
 m:
     int choise;
@@ -75,6 +75,57 @@ m:
 
     default:
         cout << "please select from options!";
+        break;
+    };
+
+    goto m;
+};
+
+void shopping ::adminPanel()
+{
+m:
+    int choise;
+    cout << "\t\t\t\t-------------------------------\n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t    1) Add the product         \n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t    2) Edit the product        \n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t    3) Remove the product      \n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t    4) inventory the product   \n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t    5) Back to menu            \n";
+    cout << "\t\t\t\t                               \n";
+    cout << "\t\t\t\t-------------------------------\n";
+    cout << "\t\t\t\t    Enter your choice:         \n";
+    cin >> choise;
+
+    switch (choise)
+    {
+    case 1:
+        addP();
+        break;
+
+    case 2:
+        editP();
+        break;
+
+    case 3:
+        removeP();
+        break;
+
+    case 4:
+        inventory();
+        break;
+
+    case 5:
+        menu();
+        break;
+
+    default:
+        cout
+            << "please select from options!";
         break;
     };
 
