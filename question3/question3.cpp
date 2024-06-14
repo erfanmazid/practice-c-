@@ -327,3 +327,14 @@ void shopping ::removeP()
         };
     };
 };
+
+void shopping ::list()
+{
+    fstream data;
+};
+
+int main()
+{
+    shopping s;
+    s.menu();
+}
