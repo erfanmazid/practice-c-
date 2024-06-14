@@ -371,6 +371,8 @@ void shopping ::list()
         }
 
     } while (q == "y");
+
+    cout << " tanks for your buyying";
 };
 
 int main()
