@@ -331,6 +331,46 @@ void shopping ::removeP()
 void shopping ::list()
 {
     fstream data;
+    int pkey;
+    string q;
+    array p = [100];
+    data.open("database.txt", ios::in);
+
+    do
+    {
+
+        cout << "Enter product id:";
+        cin >> pkey;
+
+        if (data.is_open())
+        {
+            Item item;
+            while (data >> item.pId >> item.pName >> item.pPrice >> pNumbers >>)
+            {
+                if (item.id == pkey)
+                {
+                    items.push_back(item);
+                };
+            };
+            file.close();
+        }
+        else
+        {
+            cout << "\t\t\t\t Your db is close!"
+        };
+
+        cout << "Do you want add anouther product? y or n";
+        cin >> q;
+
+        for (const Item &item : items)
+        {
+            cout << "ID: " << item.id << endl;
+            cout << "Name: " << item.name << endl;
+            cout << "Value: " << item.value << endl;
+            cout << endl;
+        }
+
+    } while (q == "y");
 };
 
 int main()
